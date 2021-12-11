@@ -116,7 +116,7 @@ macro_rules! impl_Interpolate {
         #[cfg(feature = "std")]
         let cos_nt = (1. - (t * $pi).cos()) * 0.5;
         #[cfg(not(feature = "std"))]
-        let cos_nt = (cosf64((1. - (t * $pi)) as f64) * 0.5) as $t;
+        let cos_nt = (unsafe { cosf64((1. - (t * $pi)) as f64) } * 0.5) as $t;
 
         <Self as $crate::interpolate::Interpolate<$t>>::lerp(cos_nt, a, b)
       }
