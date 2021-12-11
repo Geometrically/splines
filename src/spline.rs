@@ -1,6 +1,5 @@
 //! Spline curves and operations.
 
-#[cfg(feature = "std")]
 use crate::interpolate::{Interpolate, Interpolator};
 use crate::interpolation::Interpolation;
 use crate::key::Key;
