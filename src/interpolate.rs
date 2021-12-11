@@ -163,5 +163,12 @@ macro_rules! impl_Interpolate {
   };
 }
 
+#[cfg(not(feature = "std"))]
 impl_Interpolate!(f32, f32, std::f32::consts::PI);
+#[cfg(not(feature = "std"))]
+impl_Interpolate!(f64, f64, std::f64::consts::PI);
+
+#[cfg(feature = "std")]
+impl_Interpolate!(f32, f32, std::f32::consts::PI);
+#[cfg(feature = "std")]
 impl_Interpolate!(f64, f64, std::f64::consts::PI);
